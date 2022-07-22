@@ -31,3 +31,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 my store is an e-commerce app
 you can show products (product list)
 adding products to cart and checkout to confirm order
+
+## steps
+
+1-npm install
+2-npm start
