@@ -40,15 +40,32 @@ export class CartComponent implements OnInit {
     });
   }
   onSubmit() {
+    console.log(this.myForm);
     // this.cart.clearShoppingCart();
     this.cart.setUser(this.myForm.value.name);
     this.router.navigateByUrl('/confirm');
   }
+  removeItem(product: CartProduct) {
+    if (confirm('Are You sure you want to delete item')) {
+      this.cart.deleteFromCart(product);
+    }
+    // else {
+    //   e.target.value = product.qty;
+    // }
+  }
   onAmountChange(e: any, product: CartProduct) {
     if (e.target.value <= 0) {
-      this.cart.deleteFromCart(product);
+      if (confirm('Are You sure you want to delete item')) {
+        this.cart.deleteFromCart(product);
+      } else {
+        e.target.value = product.qty;
+      }
     } else {
-      this.cart.updateAmount(product.id, e.target.value);
+      if (confirm('Are You sure you want to update Quantity')) {
+        this.cart.updateAmount(product.id, e.target.value);
+      } else {
+        e.target.value = product.qty;
+      }
     }
   }
 }

@@ -12,6 +12,7 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SelectInputComponent } from './components/product-item/select-input/select-input.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ProductItemDetailsComponent,
     ProductListComponent,
     NotFoundComponent,
+    SelectInputComponent,
   ],
   imports: [
     BrowserModule,

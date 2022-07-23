@@ -4,7 +4,16 @@
       <!-- <div class="cart-item-details"> -->
       <img [src]="product.url" [alt]="product.url" />
       <div class="cart-item-details">
-        <span>{{ product.name }}</span>
+        <div>
+          <span>{{ product.name }} </span>
+          <button
+            class="btn btn-danger"
+            style="float: inline-start"
+            (click)="removeItem(product)"
+          >
+            x
+          </button>
+        </div>
         <p>$ {{ product.price }}</p>
         <div>
           <label for="amount">Amount</label>
@@ -34,6 +43,13 @@
           aria-describedby="emailHelp"
           placeholder="(minimum 3 characters)"
         />
+        <small
+          class="form-text error"
+          *ngIf="
+            myForm.controls['name'].touched && !myForm.controls['name'].valid
+          "
+          >min length 3 *</small
+        >
         <!-- <small id="emailHelp" class="form-text text-muted"
           >We'll never share your email with anyone else.</small
         > -->
@@ -48,6 +64,14 @@
           placeholder="(min  6 charcters)"
           aria-describedby="creditHelp"
         />
+        <small
+          class="form-text error"
+          *ngIf="
+            myForm.controls['address'].touched &&
+            !myForm.controls['address'].valid
+          "
+          >min length 6 *</small
+        >
       </div>
       <div class="form-group">
         <label for="credit">Credit</label>
@@ -58,6 +82,15 @@
           id="credit"
           placeholder="(16 digit number)"
         />
+        <small
+          class="form-text error"
+          *ngIf="
+            myForm.controls['credit'].touched &&
+            !myForm.controls['credit'].valid
+          "
+        >
+          lengthmust be 16 *</small
+        >
         <small id="creditHelp" class="form-text text-muted"
           >We'll never share your payment detail with anyone else.</small
         >

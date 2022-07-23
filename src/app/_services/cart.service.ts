@@ -19,7 +19,7 @@ export class CartService {
     let item = this.cart.find((el) => el.id == product.id);
 
     if (item) {
-      this.updateAmount(item.id, item.qty + product.qty);
+      this.updateAmount(item.id, Number(item.qty) + Number(product.qty));
     } else {
       this.cart.push(product);
       this.cart$.next(this.cart);

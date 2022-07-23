@@ -20,6 +20,9 @@ export class ProductItemComponent implements OnInit {
   constructor(private cartService: CartService) {}
 
   ngOnInit(): void {}
+  modelChangeFn(e: any) {
+    this.qty = e;
+  }
   addToCard() {
     this.cartService.addToCart({
       id: this.product.id,
