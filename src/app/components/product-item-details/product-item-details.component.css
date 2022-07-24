@@ -2,7 +2,9 @@ img {
   border-radius: 10px;
   width: 320px;
 }
-
+.bold {
+  font-weight: bold;
+}
 /* .select-input {
   width: 108px;
   margin-bottom: 8px;
